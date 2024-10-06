@@ -70,6 +70,13 @@ app.get('/calculate-bmi', (request, response) => {
 	response.send('Todo: Implement "/calculate-bmi"')
 })
 
+app.get('/roll-dice', (req, res) => {
+    const sides = parseInt(req.query.sides) || 6;
+    const result = Math.floor(Math.random() * sides) + 1;
+    res.type('text/plain');
+    res.send(result.toString());
+});
+
 // Test a variety of functions.
 app.get('/test', (request, response) => {
     // Write the request to the log. 
